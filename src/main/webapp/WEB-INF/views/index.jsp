@@ -17,13 +17,44 @@
     <title>Accident</title>
 </head>
 <body>
-<div>
-    <c:forEach items="${users}" var="user">
-        <div>
-            <c:out value="${user}"/>
+<div class="container pt-3">
+    <div class="row">
+        <div class="card" style="width: 100%">
+            <div class="card-header">
+                Аварии
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Описание</th>
+                        <th scope="col">Адресс</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${accidents}" var="accident">
+                        <tr>
+                            <td>
+                                <c:out value="${accident.value.id}"/>
+                            </td>
+                            <td>
+                                <c:out value="${accident.value.name}"/>
+                            </td>
+                            <td>
+                                <c:out value="${accident.value.text}"/>
+                            </td>
+                            <td>
+                                <c:out value="${accident.value.address}"/>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-    </c:forEach>
+    </div>
 </div>
 </body>
 </html>

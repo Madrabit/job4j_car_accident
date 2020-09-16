@@ -14,5 +14,21 @@ import java.util.Map;
 @Repository
 public class AccidentMem {
 
-    Map<Integer, Accident> accidents = new HashMap<>();
+    Map<Integer, Accident> accidents;
+
+    public AccidentMem() {
+        this.accidents = new HashMap<>();
+    }
+
+    public void store(Accident accident) {
+        accidents.put(accident.getId(), accident);
+    }
+
+    public Accident retrieve(int id) {
+        return accidents.get(id);
+    }
+
+    public Map<Integer, Accident> getAccidents() {
+        return accidents;
+    }
 }
