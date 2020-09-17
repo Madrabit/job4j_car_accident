@@ -22,6 +22,7 @@
         <div class="card" style="width: 100%">
             <div class="card-header">
                 Аварии
+                <a href="<c:url value='/create'/>">Добавить инцидент</a>
             </div>
             <div class="card-body">
                 <table class="table">

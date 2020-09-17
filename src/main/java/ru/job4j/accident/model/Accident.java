@@ -1,7 +1,5 @@
 package ru.job4j.accident.model;
 
-import java.util.Objects;
-
 /**
  * @author madrabit on 15.09.2020
  * @version 1$
@@ -18,6 +16,9 @@ public class Accident {
         this.name = name;
         this.text = text;
         this.address = address;
+    }
+
+    public Accident() {
     }
 
     public int getId() {
@@ -53,28 +54,12 @@ public class Accident {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Accident accident = (Accident) o;
-        return id == accident.id &&
-                Objects.equals(name, accident.name) &&
-                Objects.equals(text, accident.text) &&
-                Objects.equals(address, accident.address);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, text, address);
-    }
-
-    @Override
     public String toString() {
-        return "Accident{" +
-                "id=" + id +
+        String sb = "Accident{" + "id=" + id +
                 ", name='" + name + '\'' +
                 ", text='" + text + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+        return sb;
     }
 }
