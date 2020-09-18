@@ -1,6 +1,7 @@
 package ru.job4j.accident.repository;
 
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 
 import java.util.Map;
 
@@ -15,4 +16,10 @@ public interface Store {
     Map<Integer, Accident> findAll();
 
     void create(Accident accident);
+
+    void addType(AccidentType accidentType);
+
+    Map<Integer, AccidentType> findAllTypes();
+
+    AccidentType findTypeById(int id);
 }

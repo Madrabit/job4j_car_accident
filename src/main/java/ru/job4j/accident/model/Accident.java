@@ -1,5 +1,7 @@
 package ru.job4j.accident.model;
 
+import java.util.Objects;
+
 /**
  * @author madrabit on 15.09.2020
  * @version 1$
@@ -10,12 +12,14 @@ public class Accident {
     private String name;
     private String text;
     private String address;
+    private AccidentType type;
 
-    public Accident(int id, String name, String text, String address) {
+    public Accident(int id, String name, String text, String address, AccidentType type) {
         this.id = id;
         this.name = name;
         this.text = text;
         this.address = address;
+        this.type = type;
     }
 
     public Accident() {
@@ -53,13 +57,44 @@ public class Accident {
         this.address = address;
     }
 
+    public AccidentType getType() {
+        return type;
+    }
+
+    public void setType(AccidentType type) {
+        this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Accident accident = (Accident) o;
+        return id == accident.id
+                && Objects.equals(name, accident.name)
+                && Objects.equals(text, accident.text)
+                && Objects.equals(address, accident.address)
+                && Objects.equals(type, accident.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, text, address, type);
+    }
+
     @Override
     public String toString() {
-        String sb = "Accident{" + "id=" + id +
-                ", name='" + name + '\'' +
-                ", text='" + text + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-        return sb;
+        final StringBuffer sb = new StringBuffer("Accident{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", text='").append(text).append('\'');
+        sb.append(", address='").append(address).append('\'');
+        sb.append(", type=").append(type);
+        sb.append('}');
+        return sb.toString();
     }
 }
