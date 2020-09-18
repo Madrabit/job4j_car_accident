@@ -1,4 +1,4 @@
-package ru.job4j.accident.repository;
+package ru.job4j.accident.service;
 
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
@@ -10,7 +10,7 @@ import java.util.Map;
  * @version 1$
  * @since 0.1
  */
-public interface Store {
+public interface BaseService {
     Accident findById(int id);
 
     Map<Integer, Accident> findAll();

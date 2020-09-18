@@ -10,6 +10,7 @@ import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.impl.AccidentMem;
+import ru.job4j.accident.service.AccidentService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -17,6 +18,11 @@ import java.util.List;
 
 @Controller
 public class AccidentControl {
+    AccidentService  service;
+
+    public AccidentControl(AccidentService service) {
+        this.service = service;
+    }
 
     @GetMapping("/create")
     public String create(Model model) {
@@ -37,13 +43,14 @@ public class AccidentControl {
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident, HttpServletRequest req) {
         String[] ids = req.getParameterValues("rIds");
-        AccidentMem.instOf().create(accident);
+        service.create(accident);
+        System.out.println(accident.getRules());
         return "redirect:/";
     }
 
     @GetMapping("/update")
     public String update(@RequestParam("id") int id, Model model) {
-        model.addAttribute("accident", AccidentMem.instOf().findById(id));
+        model.addAttribute("accident", service.findById(id));
         return "accident/update";
     }
 
