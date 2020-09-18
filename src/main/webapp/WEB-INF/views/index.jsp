@@ -54,6 +54,9 @@
                             <td>
                                 <c:out value="${accident.value.address}"/>
                             </td>
+                            <td>
+                                <c:out value="${accident.value.rules}"/>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>

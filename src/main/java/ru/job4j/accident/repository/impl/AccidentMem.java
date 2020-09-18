@@ -34,8 +34,8 @@ public class AccidentMem implements Store {
     public AccidentMem() {
         this.accidents = new HashMap<>();
         this.types = new HashMap<>();
-//        accidents.put(1, new Accident(1, "Petr", "lalala", "Spb", 1));
-//        accidents.put(2, new Accident(2, "Andrew", "hohoho", "Msk", 2));
+//        accidents.put(1, new Accident(1, "Petr", "lalala", "Spb", AccidentType.of(1, "Две машины")));
+//        accidents.put(2, new Accident(2, "Andrew", "hohoho", "Msk", AccidentType.of(1, "Две машины")));
     }
 
     @Override
