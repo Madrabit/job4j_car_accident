@@ -1,6 +1,5 @@
 package ru.job4j.accident.repository;
 
-import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 
@@ -14,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @version 1$
  * @since 0.1
  */
-@Repository
+//@Repository
 public class AccidentMem implements DAO {
 
     private Map<Integer, Accident> accidents;

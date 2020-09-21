@@ -49,7 +49,7 @@
                                 <c:out value="${accident.name}"/>
                             </td>
                             <td>
-                                <c:out value="${accident.text}"/>
+                                <c:out value="${accident.description}"/>
                             </td>
                             <td>
                                 <c:out value="${accident.address}"/>

@@ -10,7 +10,7 @@
         </tr>
         <tr>
             <td>Описание:</td>
-            <td><input type='text' name='text' value="${accident.text}"></td>
+            <td><input type='text' name='description' value="${accident.description}"></td>
         </tr>
         <tr>
             <td>Адрес:</td>

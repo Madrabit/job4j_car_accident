@@ -1,5 +1,6 @@
 package ru.job4j.accident.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,10 @@ import java.util.Objects;
  * @version 1$
  * @since 0.1
  */
+@Entity
+@Table(name = "accident_type")
 public class AccidentType {
+    @Id
     private int id;
     private String name;
 
@@ -53,7 +57,7 @@ public class AccidentType {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("AccidentType{");
+        final StringBuilder sb = new StringBuilder("AccidentType{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
         sb.append('}');
