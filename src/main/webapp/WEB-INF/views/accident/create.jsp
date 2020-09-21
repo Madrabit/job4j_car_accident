@@ -3,8 +3,8 @@
 <html>
 <body>
 <form  action="<c:url value='/save'/>" method='POST'>
-    <c:set var="id" value="${0}" scope="request"/>
-    <c:out value="${requestScope.id }"/>
+<!--    <c:set var="id" value="${0}" scope="request"/>-->
+<!--    <c:out value="${requestScope.id }"/>-->
     <table>
         <tr>
             <td>Название:</td>

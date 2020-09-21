@@ -40,22 +40,22 @@
                     <c:forEach items="${accidents}" var="accident">
                         <tr>
                             <td>
-                                <c:out value="${accident.value.id}"/>
+                                <c:out value="${accident.id}"/>
                             </td>
                             <td>
-                                <a href="<c:url value='/update?id=${accident.value.id}'/>">
+                                <a href="<c:url value='/update?id=${accident.id}'/>">
                                     <i class="fa fa-edit mr-3"></i>
                                 </a>
-                                <c:out value="${accident.value.name}"/>
+                                <c:out value="${accident.name}"/>
                             </td>
                             <td>
-                                <c:out value="${accident.value.text}"/>
+                                <c:out value="${accident.text}"/>
                             </td>
                             <td>
-                                <c:out value="${accident.value.address}"/>
+                                <c:out value="${accident.address}"/>
                             </td>
                             <td>
-                                <c:out value="${accident.value.rules}"/>
+                                <c:out value="${accident.rules}"/>
                             </td>
                         </tr>
                     </c:forEach>

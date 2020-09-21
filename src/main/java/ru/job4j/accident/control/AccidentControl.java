@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.impl.AccidentMem;
-import ru.job4j.accident.service.AccidentService;
+import ru.job4j.accident.repository.AccidentJdbcTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -18,10 +17,11 @@ import java.util.List;
 
 @Controller
 public class AccidentControl {
-    AccidentService  service;
 
-    public AccidentControl(AccidentService service) {
-        this.service = service;
+    final AccidentJdbcTemplate repo;
+
+    public AccidentControl(AccidentJdbcTemplate repo) {
+        this.repo = repo;
     }
 
     @GetMapping("/create")
@@ -43,14 +43,18 @@ public class AccidentControl {
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident, HttpServletRequest req) {
         String[] ids = req.getParameterValues("rIds");
-        service.create(accident);
-        System.out.println(accident.getRules());
+        repo.create(accident);
         return "redirect:/";
     }
 
     @GetMapping("/update")
     public String update(@RequestParam("id") int id, Model model) {
-        model.addAttribute("accident", service.findById(id));
+        model.addAttribute("accident", repo.findById(id));
+        List<AccidentType> types = new ArrayList<>();
+        types.add(AccidentType.of(1, "Две машины"));
+        types.add(AccidentType.of(2, "Машина и человек"));
+        types.add(AccidentType.of(3, "Машина и велосипед"));
+        model.addAttribute("types", types);
         return "accident/update";
     }
 
