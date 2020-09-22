@@ -21,6 +21,9 @@
 <body>
 <div class="container pt-3">
     <div class="row">
+        <div>
+            Login as : <c:out value="${user.username}"/>
+        </div>
         <div class="card" style="width: 100%">
             <div class="card-header">
                 Аварии
