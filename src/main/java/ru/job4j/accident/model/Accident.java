@@ -115,13 +115,14 @@ public class Accident {
 
     @Override
     public String toString() {
-        String sb = "Accident{" + "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", address='" + address + '\'' +
-                ", type=" + type +
-                ", rules=" + rules +
-                '}';
-        return sb;
+        final StringBuffer sb = new StringBuffer("Accident{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", description='").append(description).append('\'');
+        sb.append(", address='").append(address).append('\'');
+        sb.append(", type=").append(type);
+        sb.append(", rules=").append(rules);
+        sb.append('}');
+        return sb.toString();
     }
 }
