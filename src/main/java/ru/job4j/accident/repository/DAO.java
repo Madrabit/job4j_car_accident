@@ -14,5 +14,5 @@ public interface DAO {
 
     List<Accident> findAll();
 
-    void create(Accident accident);
+    void save(Accident accident);
 }

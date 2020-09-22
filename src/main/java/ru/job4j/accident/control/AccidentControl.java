@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.AccidentHibernate;
-import ru.job4j.accident.repository.DAO;
+import ru.job4j.accident.repository.AccidentRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -19,9 +18,9 @@ import java.util.List;
 @Controller
 public class AccidentControl {
 
-    final DAO repo;
+    final AccidentRepository repo;
 
-    public AccidentControl(AccidentHibernate repo) {
+    public AccidentControl(AccidentRepository repo) {
         this.repo = repo;
     }
 
@@ -44,7 +43,7 @@ public class AccidentControl {
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident, HttpServletRequest req) {
         String[] ids = req.getParameterValues("rIds");
-        repo.create(accident);
+        repo.save(accident);
         return "redirect:/";
     }
 

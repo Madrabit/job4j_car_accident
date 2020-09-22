@@ -2,7 +2,6 @@ package ru.job4j.accident.repository;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
 
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
  * @version 1$
  * @since 0.1
  */
-@Repository
+//@Repository
 public class AccidentHibernate implements DAO {
     private final SessionFactory sf;
 
@@ -30,7 +29,7 @@ public class AccidentHibernate implements DAO {
     }
 
     @Override
-    public void create(Accident accident) {
+    public void save(Accident accident) {
         try (Session session = sf.openSession()) {
             session.save(accident);
         }

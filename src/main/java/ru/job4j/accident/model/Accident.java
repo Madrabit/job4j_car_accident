@@ -13,14 +13,14 @@ import java.util.Set;
 @Table(name = "accident")
 public class Accident {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String description;
     private String address;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "accident_type_id", foreignKey = @ForeignKey(name = "TYPE_ID_FK"))
+    @ManyToOne
+    @JoinColumn(name = "accident_type_id")
     private AccidentType type;
 
     @Transient
@@ -33,6 +33,13 @@ public class Accident {
         this.address = address;
         this.type = type;
     }
+
+//    public Accident(String name, String description, String address, AccidentType type) {
+//        this.name = name;
+//        this.description = description;
+//        this.address = address;
+//        this.type = type;
+//    }
 
     public Accident() {
     }
@@ -108,14 +115,13 @@ public class Accident {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Accident{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", description='").append(description).append('\'');
-        sb.append(", address='").append(address).append('\'');
-        sb.append(", type=").append(type);
-        sb.append(", rules=").append(rules);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Accident{" + "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", address='" + address + '\'' +
+                ", type=" + type +
+                ", rules=" + rules +
+                '}';
+        return sb;
     }
 }

@@ -3,14 +3,13 @@ package ru.job4j.accident.control;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.job4j.accident.repository.AccidentHibernate;
-import ru.job4j.accident.repository.DAO;
+import ru.job4j.accident.repository.AccidentRepository;
 
 @Controller
 public class IndexControl {
-    final DAO repo;
+    final AccidentRepository repo;
 
-    public IndexControl(AccidentHibernate repo) {
+    public IndexControl(AccidentRepository repo) {
         this.repo = repo;
     }
 

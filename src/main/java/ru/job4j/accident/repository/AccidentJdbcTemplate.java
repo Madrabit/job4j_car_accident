@@ -19,7 +19,7 @@ public class AccidentJdbcTemplate implements DAO {
     }
 
     @Override
-    public void create(Accident accident) {
+    public void save(Accident accident) {
         jdbc.update("insert into accident (name, description, address, accident_type_id) values (?, ?, ?, ?)",
                 accident.getName(),
                 accident.getDescription(),

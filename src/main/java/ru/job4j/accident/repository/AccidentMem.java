@@ -26,8 +26,8 @@ public class AccidentMem implements DAO {
     public AccidentMem() {
         this.accidents = new HashMap<>();
         this.types = new HashMap<>();
-        accidents.put(1, new Accident(1, "Petr", "lalala", "Spb", AccidentType.of(1, "Две машины")));
-        accidents.put(2, new Accident(2, "Andrew", "hohoho", "Msk", AccidentType.of(1, "Две машины")));
+//        accidents.put(1, new Accident(1, "Petr", "lalala", "Spb", AccidentType.of(1, "Две машины")));
+//        accidents.put(2, new Accident(2, "Andrew", "hohoho", "Msk", AccidentType.of(1, "Две машины")));
     }
 
     public Map<Integer, Accident> getAccidents() {
@@ -65,7 +65,7 @@ public class AccidentMem implements DAO {
     }
 
     @Override
-    public void create(Accident accident) {
+    public void save(Accident accident) {
         if (accident.getId() == 0) {
             accident.setId(ACC_ID.incrementAndGet());
         }

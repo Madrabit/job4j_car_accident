@@ -12,6 +12,7 @@ import java.util.Objects;
 @Table(name = "accident_type")
 public class AccidentType {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
@@ -57,10 +58,9 @@ public class AccidentType {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("AccidentType{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append('}');
-        return sb.toString();
+        String sb = "AccidentType{" + "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+        return sb;
     }
 }
