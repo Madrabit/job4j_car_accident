@@ -5,6 +5,7 @@ package ru.job4j.accident;
  * @version 1$
  * @since 0.1
  */
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +21,6 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
     @Autowired
     DataSource ds;
 
@@ -34,25 +34,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         " select u.username, a.authority "
                                 + "from authorities as a, users as u "
                                 + "where u.username = ? and u.authority_id = a.id");
-//        auth.jdbcAuthentication()
-//                .dataSource(ds)
-//                .withUser(User.withUsername("user")
-//                        .password(passwordEncoder().encode("123456"))
-//                        .roles("USER"));
     }
+
     @Autowired
     PasswordEncoder passwordEncoder;
-
-    /*
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .passwordEncoder(passwordEncoder)
-                .withUser("user").password(passwordEncoder.encode("123456")).roles("USER")
-                .and()
-                .withUser("admin").password(passwordEncoder.encode("123456")).roles("USER", "ADMIN");
-    }
-    */
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -81,5 +66,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable();
     }
-
 }

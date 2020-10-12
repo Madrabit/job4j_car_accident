@@ -14,6 +14,10 @@ import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.User;
 import ru.job4j.accident.repository.AuthorityRepository;
 import ru.job4j.accident.repository.UserRepository;
+import ru.job4j.accident.service.AuthorityService;
+import ru.job4j.accident.service.UserService;
+import ru.job4j.accident.service.impl.AuthorityServiceImpl;
+import ru.job4j.accident.service.impl.UserServiceImpl;
 
 @Controller
 public class RegControl {

@@ -1,7 +1,8 @@
-package ru.job4j.accident.repository;
+package ru.job4j.accident.repository.impl;
 
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.repository.DAO;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,15 +13,17 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author madrabit on 15.09.2020
  * @version 1$
  * @since 0.1
+ * This class is for memory storage test.
  */
 //@Repository
 public class AccidentMem implements DAO {
 
-    private Map<Integer, Accident> accidents;
-    private Map<Integer, AccidentType> types;
 
     private static final AtomicInteger ACC_ID = new AtomicInteger(3);
     private static final AtomicInteger TYPE_ID = new AtomicInteger(4);
+
+    private Map<Integer, Accident> accidents;
+    private Map<Integer, AccidentType> types;
 
 
     public AccidentMem() {

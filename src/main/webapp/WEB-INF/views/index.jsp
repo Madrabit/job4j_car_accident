@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -21,8 +20,12 @@
 <body>
 <div class="container pt-3">
     <div class="row">
-        <div>
-            Login as : <c:out value="${user.username}"/>
+        <div class="d-flex">
+            Имя пользователя :
+            <span><c:out value="${user.username}"/>  |  </span>
+            <a class="nav-link pl-1 pt-0" href="<c:url value='/logout'/>">
+                Выйти
+            </a>
         </div>
         <div class="card" style="width: 100%">
             <div class="card-header">
@@ -36,7 +39,7 @@
                         <th scope="col">Id</th>
                         <th scope="col">Имя</th>
                         <th scope="col">Описание</th>
-                        <th scope="col">Адресс</th>
+                        <th scope="col">Адрес</th>
                     </tr>
                     </thead>
                     <tbody>

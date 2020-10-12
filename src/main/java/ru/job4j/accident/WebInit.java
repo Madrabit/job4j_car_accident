@@ -17,7 +17,6 @@ import javax.servlet.ServletRegistration;
  * @since 0.1
  */
 public class WebInit implements WebApplicationInitializer {
-
     public void onStartup(ServletContext servletCxt) {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
         ac.register(WebConfig.class, HbmConfig.class);

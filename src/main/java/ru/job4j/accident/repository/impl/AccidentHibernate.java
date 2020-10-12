@@ -1,8 +1,9 @@
-package ru.job4j.accident.repository;
+package ru.job4j.accident.repository.impl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.repository.DAO;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @author madrabit on 21.09.2020
  * @version 1$
  * @since 0.1
+ * Hibernate DAO implementation.
  */
 //@Repository
 public class AccidentHibernate implements DAO {

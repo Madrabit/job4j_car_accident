@@ -1,17 +1,23 @@
-package ru.job4j.accident.repository;
+package ru.job4j.accident.repository.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.repository.DAO;
 
 import java.util.List;
 
+/**
+ * JDBC implementation as repository.
+ */
+
 //@Repository
 public class AccidentJdbcTemplate implements DAO {
-    private final JdbcTemplate jdbc;
     private static final Logger LOG = LogManager.getLogger(AccidentJdbcTemplate.class.getName());
+
+    private final JdbcTemplate jdbc;
 
 
     public AccidentJdbcTemplate(JdbcTemplate jdbc) {
